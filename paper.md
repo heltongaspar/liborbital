@@ -29,7 +29,7 @@ Most of science developed on dynamic astronomy is performed via numerical simula
 Numerical simulations main output data are position and velocity as function of the evolution time. 
 However, the main analysis are performed over the oscullating orbital elements [@orbitalelements]. 
 Thus, converting the Cartesian coordinates into orbital elements, and vice-versa, is a common task for the dynamicists. 
-Additional algorithms use to be necessary to convert such output data into orbital osculating elements, and the developers of N-Body simulation software use to provide them along with their main software [@mercury],[@swift],[@rebound]. 
+Additional algorithms use to be necessary to convert such output data into orbital osculating elements, and the developers of N-Body simulation software use to provide them along with their main software [@mercury;@swift;@rebound]. 
 Normally, the main output data are converted into orbital elements and written in a secondary file, from which further analyses are dore such as the plotting of graphics, for instance. 
 Sometimes, having to generate such secondary file may be inconvenient. 
 The library allows one to plot the orbital elements converted directly from the main output data within the gnuplot. 
@@ -63,7 +63,7 @@ Although gnuplot was designed with the aim of plot graphics, it also allows one 
 
 # Applied example with Apophis close encounter
 The purpose of this section is to exemplify how the use of the <code>liborbital</code> library avoids the need of generating two additional files when analyzing the results of a numerical simulation: 
- - <code>T\_Sun.dat</code> default ASCII output file which contains the Cartesian coordinates of the position vector $x$, $y$ and $z$ and the velocity vector $v_x$, $v_y$ and  $v_z$ for each body for each output timestep. %
+ - <code>T\_Sun.dat</code> default ASCII output file which contains the Cartesian coordinates of the position vector $x$, $y$ and $z$ and the velocity vector $v_x$, $v_y$ and  $v_z$ for each body for each output timestep. 
  - <code>K\_Sun.dat</code> additional file which contains the *heliocentric* Keplerian osculating elements converted from <code>T\_Sun.dat</code> via auxiliary routines provided along with the numerical simulation package.
  - <code>K\_Earth.dat</code> additional file similar to the <code>K\_Sun.dat</code>, but with **geocentric** Keplerian osculating elements instead, also obtained via routines provided along with the numerical simulation package.
 
@@ -72,24 +72,28 @@ Such astronomical phenomenon must occur in April 13$^\mathrm{th}$ 2029 when Apop
 
 Accurate data about the heliocentric configuration for the Earth, Moon and Apophis at March 1$^\mathrm{st}$ 2029 were obtained from JPL Horizons Web-Interface [@horizons]. 
 Such initial configuration is dynamically evolved through a numerical simulation and the default output is written into <code>T\_Sun.dat</code> every 15 minutes. 
-Figure \autoref{fig:ex1a} presents the trajectories of the three bodies during the close approach April 13$^\mathrm{th}\,0^\mathrm{h}$, with the Sun fixed at the origin of the coordinate system $(0\,\mathrm{AU},0\,\mathrm{AU},0\,\mathrm{AU})$. 
+Figure \autoref{fig:ex1b} presents the trajectories of the three bodies during the close approach April 13$^\mathrm{th}\,0^\mathrm{h}$, with the Sun fixed at the origin of the coordinate system $(0\,\mathrm{AU},0\,\mathrm{AU},0\,\mathrm{AU})$. 
 By using the functions <code>rv2...</code> of the <code>liborbital</code> library, the mean osculating elements $\left(\langle a\rangle,\langle e\rangle,\langle I\rangle,\langle\Omega\rangle,\langle\omega\rangle,\langle f\rangle\right)$ were evaluated just before and just after the closest approach from the Cartesian coordinates. 
 From such mean values, the <code>liborbital</code> functions <code>eo2...</code> were used to plot the prior and posterior mean orbits with continuous line in peach color, and their respective extrapolations with dashed lines after and before the closest passage, respectively. 
 The trajectories plotted with the <code>liborbital</code> illustrate very well how the the geocentric gravity field deviates the asteroid from its original orbit. 
 Performing such task of plotting the mean orbits without the library, would demand the use of the additional file <code>K\_Sun.dat</code>. 
 
-Figure \autoref{fig:ex1b} presents the osculating semimajor axis, perihelion and aphelion for the three bodies. 
+![Simulated trajectories are plotted with circles. A fit of the prior and posterior orbits to the closest approach were performed with the <code>liborbital</code> library, and are represented in peach color. \label{fig:ex1b}](ex1b.pdf){widht=70%}
+
+Figure \autoref{fig:ex1} presents the osculating semimajor axis, perihelion and aphelion for the three bodies. 
 An heuristic ellipse to explaing the lay readers the meaning of each parameters was drawn beside the key by using the <code>liborbital</code> library functions. 
 Triangles and circles stand for the osculating elements from <code>K\_Sun.dat</code>, but the lines in peach color were evaluated from the default output file <code>T\_Sun.dat</code> via <code>liborbital</code> library. 
 
-Figure \autoref{fig:ex1c} is similar to the figure \autoref{fig:ex1b}, but with respect to the geocentric frame of reference instead. 
-Analogously to the figure \autoref{fig:ex1b}, the circles stand for data from file <code>K\_Earth.dat</code> while the back curves in peach color were plotted directly from <code>T\_Sun.dat</code> with <code>liborbital</code> functions. 
+![Circles and triangles stand for the osculating elements from <code>K\_Sun.dat</code> while the peach color curves were evaluated from <code>T\_Sun.dat</code> by using the <code>liborbital</code> functions. \label{fig:ex1}](ex1.pdf){widht=70%}
+
+Figure \autoref{fig:ex1c} is similar to the figure \autoref{fig:ex1}, but with respect to the geocentric frame of reference instead. 
+Analogously to the figure \autoref{fig:ex1}, the circles stand for data from file <code>K\_Earth.dat</code> while the back curves in peach color were plotted directly from <code>T\_Sun.dat</code> with <code>liborbital</code> functions. 
 By observing the scale, one infers that the variations are very small $\sim10^{-3}$ either in semimajor axis as in eccentricity. 
 Even for such small variations the library functions are very accurate. 
 
-![Simulated trajectories are plotted with circles. A fit of the prior and posterior orbits to the closest approach were performed with the <code>liborbital</code> library, and are represented in peach color. \label{fig:ex1a}](ex1b.pdf){widht=70%}
-![Circles and triangles stand for the osculating elements from <code>K\_Sun.dat</code> while the peach color curves were evaluated from <code>T\_Sun.dat</code> by using the <code>liborbital</code> functions. \label{fig:ex1b}](ex1.pdf){widht=70%}
-![Analogous to figure \autoref{fig:ex1b} but for the geocentric frame of reference, instead. Osculating parameters computed with the library functions are so accurate as those computed with traditional routines even for such small variations. \label{fig:ex1c}](ex1c.pdf){widht=81%}
+
+
+![Analogous to figure \autoref{fig:ex1} but for the geocentric frame of reference, instead. Osculating parameters computed with the library functions are so accurate as those computed with traditional routines even for such small variations. \label{fig:ex1c}](ex1c.pdf){widht=81%}
 
 # Applied examples on orbital mechanics teaching
 Figure \autoref{fig:ex2} is a classic sketch of orbital mechanics teaching that illustrates correlations between the mechanic energy and the types of conic orbits:

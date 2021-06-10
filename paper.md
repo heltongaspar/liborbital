@@ -20,7 +20,6 @@ affiliations:
    index: 2
 date: 09 June 2021
 bibliography: references.bib
-
 ---
 
 # Summary
@@ -68,8 +67,11 @@ Although gnuplot was designed with the aim of plot graphics, it also allows one 
 
 # Applied example with Apophis close encounter
 The purpose of this section is to exemplify how the use of the `liborbital` library avoids the need of generating two additional files when analyzing the results of a numerical simulation: 
+
 *  `T\_Sun.dat` default ASCII output file which contains the Cartesian coordinates of the position vector $x$, $y$ and $z$ and the velocity vector $v_x$, $v_y$ and  $v_z$ for each body for each output timestep. 
+
 * `K\_Sun.dat` additional file which contains the *heliocentric* Keplerian osculating elements converted from `T\_Sun.dat` via auxiliary routines provided along with the numerical simulation package.
+
 * `K\_Earth.dat` additional file similar to the `K\_Sun.dat`, but with **geocentric** Keplerian osculating elements instead, also obtained via routines provided along with the numerical simulation package.
 
 This applied example presents the results of a numerical simulation of the predicted close passage of the NEA 99942 Apophis (2004 MN4) by the Earth-Moon vicinity [@apophis]. 
@@ -102,10 +104,14 @@ Even for such small variations the library functions are very accurate.
 
 # Applied examples on orbital mechanics teaching
 Figure \autoref{fig:ex2} is a classic sketch of orbital mechanics teaching that illustrates correlations between the mechanic energy and the types of conic orbits:
- - Circle $e=0$;
- - Ellipse $0<e<1$;
- - Parabola $e=1$;
- - Hyperbole $e>1$;
+
+* Circle $e=0$;
+
+* Ellipse $0<e<1$;
+
+* Parabola $e=1$;
+
+* Hyperbole $e>1$;
 
 ![Classic sketch of the orbital mechanics that exemplifies the correlation between the mechanic energy and the type of the conic orbit. The library functions provided not only the facility of plotting the orbits but also aided to align the eccentricity labels. \label{fig:ex2}](ex2.pdf){widht=81%}
 

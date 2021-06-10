@@ -10,9 +10,14 @@ authors:
   - name: Helton da Silva Gaspar^[first author]
     orcid: 0000-0002-0032-0966
     affiliation: 1
+  - name: Ernesto Vieira Neto^[co author]
+    orcid: 0000-0002-0032-0966
+    affiliation: 2
 affiliations:
  - name: UFSC - Universidade Federal de Santa Catarina
    index: 1
+ - name: UNESP - Universidade Estadual Paulista "Júlio de Mesquita Filho"
+   index: 2
 date: 09 june 2021
 bibliography: references.bib
 
@@ -56,7 +61,7 @@ Tasks like evaluating orbital elements given the state vectors, and vice-versa, 
 But the <code>liborbital</code> pack make such kind of tasks trivial. 
 Although gnuplot was designed with the aim of plot graphics, it also allows one to evaluate functions on prompt console by using the gnuplot command <code>print</code>. 
 
-#Applied example with Apophis close encounter
+# Applied example with Apophis close encounter
 The purpose of this section is to exemplify how the use of the <code>liborbital</code> library avoids the need of generating two additional files when analyzing the results of a numerical simulation: 
  - <code>T\_Sun.dat</code> default ASCII output file which contains the Cartesian coordinates of the position vector $x$, $y$ and $z$ and the velocity vector $v_x$, $v_y$ and  $v_z$ for each body for each output timestep. %
  - <code>K\_Sun.dat</code> additional file which contains the *heliocentric* Keplerian osculating elements converted from <code>T\_Sun.dat</code> via auxiliary routines provided along with the numerical simulation package.
@@ -86,7 +91,7 @@ Even for such small variations the library functions are very accurate.
 ![Circles and triangles stand for the osculating elements from <code>K\_Sun.dat</code> while the peach color curves were evaluated from <code>T\_Sun.dat</code> by using the <code>liborbital</code> functions. \label{fig:ex1b}](ex1.pdf){widht=70%}
 ![Analogous to figure \autoref{fig:ex1b} but for the geocentric frame of reference, instead. Osculating parameters computed with the library functions are so accurate as those computed with traditional routines even for such small variations. \label{fig:ex1c}](ex1c.pdf){widht=81%}
 
-#Applied examples on orbital mechanics teaching
+# Applied examples on orbital mechanics teaching
 Figure \autoref{fig:ex2} is a classic sketch of orbital mechanics teaching that illustrates correlations between the mechanic energy and the types of conic orbits:
  - Circle $e=0$;
  - Ellipse $0<e<1$;
@@ -106,8 +111,8 @@ Those same functions aided setting the many other elements represented in the fi
 ![Classic sketch that illustrates the three Euler angles $\Omega$, $I$ and $\omega$ of sequential rotations that sets the spatial orientation of the orbit. \label{fig:ex3}](ex3.pdf){widht=81%}
 
 
-#Acknowledgements
+# Acknowledgements
 Thanks to Dr. Pablo Andretta Jaskowiak due the advises about software distribution platforms and suggestion of publishing at this journal. 
 Dr. Ernesto Vieira Neto who developed the most user friendly N-Body numeric integrator in C language, that one employed to simulate the close encounter with Apophis. 
 
-#References
+# References

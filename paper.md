@@ -46,16 +46,16 @@ The <code>liborbital</code> library was not only designed to assist dynamic astr
 # Statement of need
 
 The <code>liborbital</code> library is just a gnuplot script that can be easily loaded by typing the following command at the gnuplot prompt:
-~~~
-load `liborbital.plt'
-~~~
+```
+load 'liborbital.plt'
+```
 Thus, it provides a set of functions which makes gnuplot a powerful tool to deal with many regular, but not trivial, tasks of the the celestial mechanics universe. 
 The library allows one to easily accomplish tasks like:
- - Evaluating the position in the orbit for a given orbital flight time lapse, and vice-versa.
- - Evaluating any orbital element given the parameter of mass $\mu$ and the cartesian coordinates of the relative position and velocity vectors, vice-versa
- - Plotting an arc of 3D conic orbit given the orbital elements ($a$,$e$,$I$,$\Omega$,$\omega$) and the initial ($f_A$) and final ($f_B$) anomalies, or even the flight times ($t_A$) and ($t_B$) since the epoch of periapsis passage.
-   - *This feature makes the library very useful for teaching of the orbital mechanics*
- - Plotting easily any of the keplerian orbital elements directly from a data file with the already mentioned state vectors components, and vice-versa.
+1. Evaluating the position in the orbit for a given orbital flight time lapse, and vice-versa.
+2. Evaluating any orbital element given the parameter of mass $\mu$ and the cartesian coordinates of the relative position and velocity vectors, vice-versa
+3. Plotting an arc of 3D conic orbit given the orbital elements ($a$,$e$,$I$,$\Omega$,$\omega$) and the initial ($f_A$) and final ($f_B$) anomalies, or even the flight times ($t_A$) and ($t_B$) since the epoch of periapsis passage.
+   + *This feature makes the library very useful for teaching of the orbital mechanics*
+4. Plotting easily any of the keplerian orbital elements directly from a data file with the already mentioned state vectors components, and vice-versa.
 
 Tasks like evaluating orbital elements given the state vectors, and vice-versa, use to be performed by writing short algorithms that must be compiled and run since the conversion routines are frequently provided along with the numerical simulation package. 
 But the <code>liborbital</code> pack make such kind of tasks trivial. 
@@ -63,9 +63,9 @@ Although gnuplot was designed with the aim of plot graphics, it also allows one 
 
 # Applied example with Apophis close encounter
 The purpose of this section is to exemplify how the use of the <code>liborbital</code> library avoids the need of generating two additional files when analyzing the results of a numerical simulation: 
- - <code>T\_Sun.dat</code> default ASCII output file which contains the Cartesian coordinates of the position vector $x$, $y$ and $z$ and the velocity vector $v_x$, $v_y$ and  $v_z$ for each body for each output timestep. 
- - <code>K\_Sun.dat</code> additional file which contains the *heliocentric* Keplerian osculating elements converted from <code>T\_Sun.dat</code> via auxiliary routines provided along with the numerical simulation package.
- - <code>K\_Earth.dat</code> additional file similar to the <code>K\_Sun.dat</code>, but with **geocentric** Keplerian osculating elements instead, also obtained via routines provided along with the numerical simulation package.
+*  <code>T\_Sun.dat</code> default ASCII output file which contains the Cartesian coordinates of the position vector $x$, $y$ and $z$ and the velocity vector $v_x$, $v_y$ and  $v_z$ for each body for each output timestep. 
+* <code>K\_Sun.dat</code> additional file which contains the *heliocentric* Keplerian osculating elements converted from <code>T\_Sun.dat</code> via auxiliary routines provided along with the numerical simulation package.
+* <code>K\_Earth.dat</code> additional file similar to the <code>K\_Sun.dat</code>, but with **geocentric** Keplerian osculating elements instead, also obtained via routines provided along with the numerical simulation package.
 
 This applied example presents the results of a numerical simulation of the predicted close passage of the NEA 99942 Apophis (2004 MN4) by the Earth-Moon vicinity [@apophis]. 
 Such astronomical phenomenon must occur in April 13$^\mathrm{th}$ 2029 when Apophis' closest distance to the surface of our planet will be about 5 Earth radii. 

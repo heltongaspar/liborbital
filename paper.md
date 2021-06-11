@@ -1,27 +1,24 @@
 ---
-title: 'Gala: A Python package for galactic dynamics'
+title: liborbital: A gnuplot library to deal with keplerian orbits, and more
 tags:
-  - Python
+  - gnuplot
   - astronomy
   - dynamics
-  - galactic dynamics
-  - milky way
+  - keplerian orbits
+  - orbital elements
 authors:
-  - name: Adrian M. Price-Whelan^[co-first author] # note this makes a footnote saying 'co-first author'
-    orcid: 0000-0003-0872-7098
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID^[co-first author] # note this makes a footnote saying 'co-first author'
+  - name: Helton da Silva Gaspar^[first author]
+    orcid: 0000-0002-0032-0966
+    affiliation: 1
+  - name: Ernesto Vieira Neto^[co author]
+    orcid: 0000-0002-0032-0966
     affiliation: 2
-  - name: Author with no affiliation^[corresponding author]
-    affiliation: 3
 affiliations:
- - name: Lyman Spitzer, Jr. Fellow, Princeton University
+ - name: UFSC - Universidade Federal de Santa Catarina
    index: 1
- - name: Institution Name
+ - name: UNESP - Universidade Estadual Paulista "Júlio de Mesquita Filho"
    index: 2
- - name: Independent Researcher
-   index: 3
-date: 13 August 2017
+date: 09 June 2021
 bibliography: references.bib
 ---
 

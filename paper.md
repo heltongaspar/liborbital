@@ -1,5 +1,5 @@
 ---
-title: liborbital: A gnuplot library to deal with keplerian orbits, and more
+title: 'liborbital: A gnuplot library to deal with keplerian orbits, and more'
 tags:
   - gnuplot
   - astronomy
